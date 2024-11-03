@@ -103,6 +103,26 @@ namespace myProjectCTO.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_icon_digital_camera_7214335 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-digital-camera-7214335", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_digital_camera_72143351 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-digital-camera-72143351", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_icon_invisible_98494 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-invisible-98494", resourceCulture);
@@ -156,6 +176,16 @@ namespace myProjectCTO.Properties {
         internal static System.Drawing.Bitmap free_icon_utility_4326609 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-utility-4326609", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_video_production_10187450 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-video-production-10187450", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,6 +124,9 @@
   <data name="free-icon-invisible-98494" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\free-icon-invisible-98494.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="free-icon-digital-camera-72143351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\free-icon-digital-camera-7214335.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pexels-karolina-grabowska-4040649" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\pexels-karolina-grabowska-4040649.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,6 +160,9 @@
   <data name="free-icon-new-email-5335866" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\free-icon-new-email-5335866.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="free-icon-digital-camera-7214335" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\free-icon-digital-camera-7214335.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="modern-automobile-mechanic-composition1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\modern-automobile-mechanic-composition1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,10 +172,13 @@
   <data name="free-icon-user-profile-9141946" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\free-icon-user-profile-9141946.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="free-icon-customer-support-1086470" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\free-icon-customer-support-1086470.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="free-icon-lock-526812" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\free-icon-lock-526812.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="free-icon-customer-support-1086470" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\free-icon-customer-support-1086470.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="free-icon-video-production-10187450" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\free-icon-video-production-10187450.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
