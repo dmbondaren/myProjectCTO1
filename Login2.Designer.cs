@@ -51,9 +51,9 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(254, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 31);
+            this.label1.Size = new System.Drawing.Size(121, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nickname ";
+            this.label1.Text = "Нікнейм";
             // 
             // label2
             // 
@@ -61,9 +61,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(254, 208);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 31);
+            this.label2.Size = new System.Drawing.Size(107, 31);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
+            this.label2.Text = "Пароль";
             // 
             // textBox1
             // 
@@ -156,7 +156,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(288, 112);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Log in";
+            this.button1.Text = "Вхід";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Login_Click);
             // 

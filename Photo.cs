@@ -7,16 +7,15 @@ namespace myProjectCTO
 {
     public partial class Photo : Form
     {
-        private Image[] images; // Массив для хранения изображений
-        private int currentImageIndex = 0; // Текущий индекс изображения
+        private Image[] images; // Масив для зберігання зображень
+        private int currentImageIndex = 0; // Поточний індекс зображення
         private Form _userInterface4;
 
         public Photo(Form userInterface4)
         {
             InitializeComponent();
-            
 
-            // Инициализация массива изображений с использованием изображений, уже назначенных в PictureBox
+            // Ініціалізація масиву зображень із використанням зображень, вже призначених у PictureBox
             images = new Image[]
             {
                 pictureBox1.Image,
@@ -24,20 +23,20 @@ namespace myProjectCTO
                 pictureBox3.Image
             };
 
-            // Устанавливаем начальное изображение
+            // Встановлюємо початкове зображення
             pictureBox1.Image = images[currentImageIndex];
 
-            // Добавляем закругленную кнопку с градиентом
+            // Додаємо закруглену кнопку з градієнтом
             RoundButton button1 = new RoundButton();
             button1.Text = "Next";
-            button1.Size = new Size(200, 80); // Увеличенный размер кнопки по ширине
+            button1.Size = new Size(200, 80); // Збільшений розмір кнопки по ширині
             button1.Location = new Point(265, 363);
-            button1.Click += Button1_Click; // Обработчик для нажатия на кнопку
-            this.Controls.Add(button1); // Добавляем кнопку на форму
+            button1.Click += Button1_Click; // Обробник для натискання на кнопку
+            this.Controls.Add(button1); // Додаємо кнопку на форму
             _userInterface4 = userInterface4;
         }
 
-        // Обработчик для нажатия на кнопку, который переключает изображение
+        // Обробник для натискання на кнопку, який переключає зображення
         private void Button1_Click(object sender, EventArgs e)
         {
             currentImageIndex++;
@@ -46,15 +45,21 @@ namespace myProjectCTO
                 currentImageIndex = 0;
             }
 
-            // Устанавливаем текущее изображение для всех PictureBox для наложения
+            // Встановлюємо поточне зображення для всіх PictureBox для накладання
             pictureBox1.Image = images[currentImageIndex];
             pictureBox2.Image = images[(currentImageIndex + 1) % images.Length];
             pictureBox3.Image = images[(currentImageIndex + 2) % images.Length];
 
-            // Настраиваем порядок наложения картинок
+            // Налаштовуємо порядок накладання картинок
             pictureBox1.BringToFront();
             pictureBox2.BringToFront();
             pictureBox3.BringToFront();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            _userInterface4.Visible = true;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e) { }
@@ -66,12 +71,6 @@ namespace myProjectCTO
         private void Photo_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            _userInterface4.Visible = true;
         }
     }
 }

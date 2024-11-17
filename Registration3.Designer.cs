@@ -52,9 +52,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(216, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 37);
+            this.label1.Size = new System.Drawing.Size(133, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nickname";
+            this.label1.Text = "Нікнейм";
             // 
             // label2
             // 
@@ -62,9 +62,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(218, 160);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 37);
+            this.label2.Size = new System.Drawing.Size(109, 37);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Email";
+            this.label2.Text = "Емейл";
             // 
             // label3
             // 
@@ -72,49 +72,50 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(218, 247);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 37);
+            this.label3.Size = new System.Drawing.Size(124, 37);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Password";
+            this.label3.Text = "Пароль";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(407, 72);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(375, 63);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 37);
+            this.textBox1.Size = new System.Drawing.Size(357, 64);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(407, 160);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(375, 133);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 37);
+            this.textBox2.Size = new System.Drawing.Size(357, 64);
             this.textBox2.TabIndex = 4;
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(407, 242);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.Location = new System.Drawing.Point(375, 219);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 37);
+            this.textBox3.Size = new System.Drawing.Size(275, 65);
             this.textBox3.TabIndex = 5;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(223, 307);
+            this.button1.Location = new System.Drawing.Point(223, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(360, 103);
             this.button1.TabIndex = 6;
-            this.button1.Text = "registration";
+            this.button1.Text = "зареєструватись";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.registration_Click);
             // 
@@ -146,7 +147,7 @@
             this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkBox1.Image = global::myProjectCTO.Properties.Resources.open;
-            this.checkBox1.Location = new System.Drawing.Point(614, 233);
+            this.checkBox1.Location = new System.Drawing.Point(678, 228);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(54, 51);
             this.checkBox1.TabIndex = 13;

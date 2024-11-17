@@ -1,17 +1,5 @@
 ﻿using AxWMPLib;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
-using AxWMPLib;
-using System;
 using System.Windows.Forms;
 
 namespace myProjectCTO
@@ -27,46 +15,45 @@ namespace myProjectCTO
             InitializeComponent();
             _userInterface4 = UserInterface4;
 
-            // Set the URL to the video file for the AxWindowsMediaPlayer control
+            // Встановлюємо шлях до відеофайлу для елемента AxWindowsMediaPlayer
             axWindowsMediaPlayer1.URL = "C:\\Users\\admin\\source\\repos\\myProjectCTO\\bin\\Debug\\video1.mp4";
             axWindowsMediaPlayer1.Ctlcontrols.play();
 
-            // Initialize the timer and set the interval
+            // Ініціалізуємо таймер і встановлюємо інтервал
             timer = new Timer();
-            timer.Interval = 100;  // Set interval to 100 milliseconds
-            timer.Tick += Timer_Tick;  // Attach the Tick event handler
-            timer.Start();  // Start the timer
+            timer.Interval = 100;  // Встановлюємо інтервал 100 мілісекунд
+            timer.Tick += Timer_Tick;  // Додаємо обробник події Tick
+            timer.Start();  // Запускаємо таймер
         }
 
-        // Method to stop the timer
+        // Метод для зупинки таймера
         public void StopTimer()
         {
             if (timer != null)
             {
                 timer.Stop();
-                timer.Dispose();  // Optionally, release resources if the timer is no longer needed
+                timer.Dispose();  // Опціонально, вивільняємо ресурси, якщо таймер більше не потрібен
             }
         }
 
-        // Event handler for the timer tick event
+        // Обробник події для таймера
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Increment the elapsed time by the timer interval (100 ms)
+            // Збільшуємо час, що пройшов, на інтервал таймера (100 мс)
             elapsedMilliseconds += timer.Interval;
 
-            // Check if 14 seconds (14000 ms) have passed
+            // Перевіряємо, чи минуло 14 секунд (14000 мс)
             if (elapsedMilliseconds >= 14000)
             {
-                StopTimer();  // Stop the timer
-                this.Close();  // Close the form
-                _userInterface4.Visible = true;  // Show the UserInterface4 form
+                StopTimer();  // Зупиняємо таймер
+                this.Close();  // Закриваємо форму
+                _userInterface4.Visible = true;  // Показуємо форму UserInterface4
             }
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
-            // Code for handling when the media player control gains focus, if needed
+            // Код для обробки події при отриманні фокусу елементом медіаплеєра, якщо потрібно
         }
     }
 }
-

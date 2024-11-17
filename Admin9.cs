@@ -46,7 +46,7 @@ namespace myProjectCTO
                     connection.Open();
                     string query = @"
                     SELECT u.Nickname, u.Email, u.Details
-                    FROM Users u"; // Теперь выбираем детали пользователей
+                    FROM Users u"; // Тепер вибираємо деталі користувачів
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();

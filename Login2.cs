@@ -34,7 +34,7 @@ namespace myProjectCTO
 
             // Хэшируем введенный пароль перед проверкой
             string passwordHash = PasswordHasher.HashPassword(password);
-
+            
             string connectionString = "Server=localhost;Database=myProjectCTO;User ID=root;Password=root;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {

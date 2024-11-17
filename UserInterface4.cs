@@ -20,12 +20,7 @@ namespace myProjectCTO
             servicesForm.Show();
             this.Hide();
         }
-
-        // Обработчик для кнопки "Переваги"
-        private void advantages_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Тут буде інформація про переваги.");
-        }
+      
         // Добавляем обработчик для кнопки, которая будет открывать форму "Photo"
         private void openPhotoForm_Click(object sender, EventArgs e)
         {

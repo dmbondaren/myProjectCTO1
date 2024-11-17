@@ -1,7 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace myProjectCTO
@@ -26,22 +28,22 @@ namespace myProjectCTO
             LoadAndDisplayOrderDetails();
         }
 
-        // Метод для загрузки и отображения данных о заказе
+        // Метод для завантаження і відображення даних про замовлення
         private void LoadAndDisplayOrderDetails()
         {
-            DataTable orderDetails = LoadOrderDetails(); // Загружаем данные о заказе
-            decimal totalPrice = CalculateTotalPrice(orderDetails); // Считаем итоговую цену
-            Bitmap orderImage = GenerateOrderImage(orderDetails, totalPrice); // Генерируем изображение на основе данных
+            DataTable orderDetails = LoadOrderDetails(); // Завантажуємо дані про замовлення
+            decimal totalPrice = CalculateTotalPrice(orderDetails); // Рахуємо підсумкову ціну
+            Bitmap orderImage = GenerateOrderImage(orderDetails, totalPrice); // Генеруємо зображення на основі даних
 
-            // Отображаем изображение в PictureBox
+            // Відображаємо зображення в PictureBox
             pictureBox1.Image = orderImage;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            // Отображаем итоговую цену в labelTotalPrice
+            // Відображаємо підсумкову ціну в labelTotalPrice
             labelTotalPrice.Text = $"Итоговая цена: {totalPrice:C}";
         }
 
-        // Метод для загрузки информации о заказе
+        // Метод для завантаження інформації про замовлення
         private DataTable LoadOrderDetails()
         {
             DataTable orderDetailsTable = new DataTable();
@@ -61,7 +63,7 @@ namespace myProjectCTO
                         JOIN Tickets t ON t.OrderID = o.OrderID
                         JOIN Services s ON s.ServiceID = t.ServiceID
                         WHERE o.UserID = @UserID
-                        ORDER BY o.OrderID DESC"; // Убираем LIMIT 1, чтобы получить все заказы
+                        ORDER BY o.OrderID DESC"; // Прибираємо LIMIT 1, щоб отримати всі замовлення
 
                     MySqlCommand cmdOrder = new MySqlCommand(queryOrder, connection);
                     cmdOrder.Parameters.AddWithValue("@UserID", userId);
@@ -78,7 +80,7 @@ namespace myProjectCTO
             return orderDetailsTable;
         }
 
-        // Метод для создания изображения на основе данных заказа
+        // Метод для створення зображення на основі даних замовлення
         private Bitmap GenerateOrderImage(DataTable orderDetails, decimal totalPrice)
         {
             int width = 600;
@@ -86,14 +88,14 @@ namespace myProjectCTO
 
             Bitmap bitmap = new Bitmap(width, height);
             Graphics g = Graphics.FromImage(bitmap);
-            g.Clear(Color.White); // Задаем цвет фона
+            g.Clear(Color.White); // Задаємо колір фону
 
             Font font = new Font("Arial", 12);
             Brush brush = Brushes.Black;
 
-            int yPosition = 10; // Начальная позиция по Y
+            int yPosition = 10; // Початкова позиція за Y
 
-            // Проверяем, есть ли данные
+            // Перевіряємо, чи є дані
             if (orderDetails.Rows.Count > 0)
             {
                 DataRow row = orderDetails.Rows[0];
@@ -111,23 +113,23 @@ namespace myProjectCTO
                 g.DrawString("Дополнительные детали: " + row["Details"], font, brush, new PointF(10, yPosition));
                 yPosition += 30;
 
-                // Отображаем информацию о каждой услуге
+                // Відображаємо інформацію про кожну послугу
                 g.DrawString("Выбранные услуги:", new Font("Arial", 14, FontStyle.Bold), brush, new PointF(10, yPosition));
                 yPosition += 30;
 
-                // Обрабатываем каждую услугу
+                // Обробляємо кожну послугу
                 foreach (DataRow serviceRow in orderDetails.Rows)
                 {
                     string serviceName = serviceRow["ServiceName"].ToString();
                     int quantity = Convert.ToInt32(serviceRow["Quantity"]);
                     decimal price = Convert.ToDecimal(serviceRow["Price"]);
 
-                    // Отображаем услугу, количество и цену за единицу
+                    // Відображаємо послугу, кількість і ціну за одиницю
                     g.DrawString($"Услуга: {serviceName}, Количество: {quantity}, Цена за единицу: {price:C}", font, brush, new PointF(10, yPosition));
                     yPosition += 30;
                 }
 
-                // Отображаем итоговую цену
+                // Відображаємо підсумкову ціну
                 g.DrawString($"Итоговая цена: {totalPrice:C}", new Font("Arial", 14, FontStyle.Bold), brush, new PointF(10, yPosition));
             }
             else
@@ -138,21 +140,49 @@ namespace myProjectCTO
             return bitmap;
         }
 
-        // Метод для подсчета итоговой цены
+
+        // Метод для підрахунку підсумкової ціни
         private decimal CalculateTotalPrice(DataTable orderDetails)
         {
             decimal totalPrice = 0;
 
+            // Використовуємо HashSet для зберігання унікальних послуг та їхньої кількості
+            Dictionary<string, decimal> servicePrices = new Dictionary<string, decimal>();
+
             foreach (DataRow row in orderDetails.Rows)
             {
+                string serviceName = row["ServiceName"].ToString();
                 int quantity = Convert.ToInt32(row["Quantity"]);
                 decimal price = Convert.ToDecimal(row["Price"]);
 
-                // Умножаем цену на количество для каждой услуги
-                totalPrice += price * quantity; // Считаем общую стоимость для каждой услуги
+                // Якщо послуга вже існує, збільшуємо кількість, але не ціну
+                if (servicePrices.ContainsKey(serviceName))
+                {
+                    servicePrices[serviceName] += price; // Додаємо до загальної ціни за одиницю послуги
+                }
+                else
+                {
+                    servicePrices.Add(serviceName, price); // Додаємо нову послугу з її ціною
+                }
+            }
+
+            // Тепер рахуємо загальну вартість на основі зібраних даних
+            foreach (var service in servicePrices)
+            {
+                // Рахуємо підсумкову ціну як ціна за одиницю * кількість
+                totalPrice += service.Value * orderDetails.Rows.Cast<DataRow>()
+                                  .Where(row => row["ServiceName"].ToString() == service.Key)
+                                  .Sum(row => Convert.ToInt32(row["Quantity"]));
             }
 
             return totalPrice;
+        }
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

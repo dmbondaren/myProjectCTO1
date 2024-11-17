@@ -18,7 +18,7 @@ namespace myProjectCTO
             userId = currentUserId;
             selectedServices = new List<int>();
 
-            comboBox1.Items.AddRange(new string[] { "Цена по возрастанию", "Цена по убыванию", "По алфавиту" });
+            comboBox1.Items.AddRange(new string[] { "Ціна за зростанням", "Ціна за спаданням", "За алфавітом" });
             LoadServices();
         }
 
@@ -26,11 +26,11 @@ namespace myProjectCTO
         {
             if (e.RowIndex >= 0)
             {
-                int serviceId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ServiceID"].Value); // Получаем ServiceID
+                int serviceId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ServiceID"].Value); // отримаємо ServiceID
                 string serviceName = dataGridView1.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
                 decimal price = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["Price"].Value);
 
-                // Передаем serviceId в GetOrCreateOrder для динамической обработки
+                // Передаємо serviceId в GetOrCreateOrder для динамічної обробки
                 int orderId = GetOrCreateOrder(serviceId);
                 AddOrUpdateTicket(orderId, serviceId, serviceName, price);
             }
@@ -43,14 +43,14 @@ namespace myProjectCTO
             {
                 connection.Open();
 
-                // Получаем последний заказ пользователя, если он существует
+                // Отримуємо останнє замовлення користувача, якщо воно існує
                 var getOrderCmd = new MySqlCommand("SELECT OrderID FROM Orders WHERE UserID = @UserID ORDER BY OrderID DESC LIMIT 1", connection);
                 getOrderCmd.Parameters.AddWithValue("@UserID", userId);
                 object orderIdObj = getOrderCmd.ExecuteScalar();
 
                 if (orderIdObj == null)
                 {
-                    // Если заказа нет, получаем Details из таблицы users
+                    // Якщо замовлення немає, отримуємо Details з таблиці users
                     var getUserDetailsCmd = new MySqlCommand("SELECT Details FROM Users WHERE UserID = @UserID", connection);
                     getUserDetailsCmd.Parameters.AddWithValue("@UserID", userId);
                     string userDetails = getUserDetailsCmd.ExecuteScalar() as string;
@@ -60,11 +60,11 @@ namespace myProjectCTO
                         userDetails = "Деталі замовлення відсутні";
                     }
 
-                    // Создаем новый заказ, используя Details из таблицы users и динамический serviceId
+                    // Створюємо нове замовлення, використовуючи Details з таблиці users і динамічний serviceId
                     var insertOrderCmd = new MySqlCommand("INSERT INTO Orders (UserID, ServiceID, CarBrand, AppointmentDate) VALUES (@UserID, @ServiceID, @Details, @AppointmentDate)", connection);
                     insertOrderCmd.Parameters.AddWithValue("@UserID", userId);
-                    insertOrderCmd.Parameters.AddWithValue("@ServiceID", serviceId); // Динамическое значение serviceId
-                    insertOrderCmd.Parameters.AddWithValue("@Details", userDetails); // Используем Details из users
+                    insertOrderCmd.Parameters.AddWithValue("@ServiceID", serviceId); // Використовуємо Details з users
+                    insertOrderCmd.Parameters.AddWithValue("@Details", userDetails); // Використовуємо Details з users
                     insertOrderCmd.Parameters.AddWithValue("@AppointmentDate", DateTime.Now.AddDays(1));
                     insertOrderCmd.ExecuteNonQuery();
 
@@ -167,13 +167,13 @@ namespace myProjectCTO
                 DataView dataView = servicesTable.DefaultView;
                 switch (comboBox1.SelectedItem.ToString())
                 {
-                    case "Цена по возрастанию":
+                    case "Ціна за зростанням":
                         dataView.Sort = "Price ASC";
                         break;
-                    case "Цена по убыванию":
+                    case "Ціна за спаданням":
                         dataView.Sort = "Price DESC";
                         break;
-                    case "По алфавиту":
+                    case "За алфавітом":
                         dataView.Sort = "ServiceName ASC";
                         break;
                 }

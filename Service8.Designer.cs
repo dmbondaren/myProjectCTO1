@@ -85,10 +85,12 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(432, 218);
+            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(432, 195);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(160, 60);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(175, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(175, 60);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -146,9 +148,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(432, 333);
+            this.button1.Location = new System.Drawing.Point(214, 351);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 76);
+            this.button1.Size = new System.Drawing.Size(342, 76);
             this.button1.TabIndex = 10;
             this.button1.Text = "відправити";
             this.button1.UseVisualStyleBackColor = false;

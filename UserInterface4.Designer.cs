@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MistyRose;
+            this.button2.Location = new System.Drawing.Point(722, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Вихід";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -87,16 +98,6 @@
             this.button4.Text = "photo";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.openPhotoForm_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(722, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Power OFF";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // UserInterface4
             // 

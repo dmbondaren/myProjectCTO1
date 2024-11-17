@@ -10,22 +10,22 @@ namespace myProjectCTO
             InitializeComponent();
         }
 
-        // Обработчик для кнопки "Реєстрація"
+        // Обработчик для кнопки «Регистрация»
         private void registration_Click(object sender, EventArgs e)
         {
             // Переход на форму реєстрації
             Registration3 registrationForm = new Registration3();
             registrationForm.Show();
-            this.Hide(); // Скрыть текущую форму
+            this.Hide(); // Приховати поточну форму
         }
 
-        // Обработчик для кнопки "Вхід"
+        // Обробник для кнопки «Вхід»
         private void login_Click(object sender, EventArgs e)
         {
-            // Переход на форму входу
+            // Перехід на форму входу
             Login2 loginForm = new Login2();
             loginForm.Show();
-            this.Hide(); // Скрыть текущую форму
+            this.Hide(); // Приховати поточну форму
         }
     }
 }
